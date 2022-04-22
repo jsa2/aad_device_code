@@ -1,29 +1,30 @@
-const { argv0 } = require('process')
-const {axiosClient} = require('./axioshelpers')
 
+const {argv} = require('yargs')
+const {axiosClient} = require('./axioshelpers')
 const tsto= require('util').promisify(setTimeout)
 
-
-//module.exports= {azCLI}
 azCLI()
 
 async function azCLI () {
 
-    console.log(process.argv0)
-
 var data={
-    client_id:"04b07795-8ddb-461a-bbee-02f9e1bf7b46",
-    resource:"https://management.core.windows.net/" || argv0
+    client_id:argv.client || "04b07795-8ddb-461a-bbee-02f9e1bf7b46",
+    resource: argv.resource ||  "https://management.core.windows.net/" 
 }
 var opt = {
     method:"post",
     url:"https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0",
     data
 }
-
+let errorP 
     var at = await axiosClient(opt, true).catch((error) => {
-        console.log(error)
+       errorP =error
     })
+
+if (errorP) {
+    console.log(errorP)
+    return;
+}
 
     console.log(at?.data?.message)
 
@@ -44,8 +45,6 @@ var opt = {
     /*     console.log(i)
       console.log(i < 10) */
     } while ( i < 15 && !loop?.data?.access_token)
-    loop.data.access_token = "redacted ****"
-    loop.data.refresh_token = "redacted ****"
-    loop.data.id_token = "redacted ****"
+    console.log('iterations done')
     console.log(loop?.data)
 }
