@@ -15,3 +15,7 @@ Very simple implementation of Azure AD Device Code Flow using existing high priv
 `` node getCode.js --client=04b07795-8ddb-461a-bbee-02f9e1bf7b46 --resource=https://graph.microsoft.com `` 
 
 ![image](https://user-images.githubusercontent.com/58001986/164604283-57cb6bb8-6a57-4890-b964-5170777cb070.png)
+
+## Backround
+If you want to read about how this might be used for malicious purposes, read the excellent write-up by [DrAzureAD](https://twitter.com/DrAzureAD) 
+@ https://o365blog.com/post/phishing/
