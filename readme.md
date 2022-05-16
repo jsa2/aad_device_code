@@ -14,6 +14,12 @@ Very simple implementation of Azure AD Device Code Flow using existing high priv
 4. Run the tool (It will wait for 15 iterations for login)
 `` node getCode.js --client=04b07795-8ddb-461a-bbee-02f9e1bf7b46 --resource=https://graph.microsoft.com `` 
 
+- If you use your own clientID, and it is not an multitenant app, supply tenantId param too
+
+    `` node getCode.js --tid=48f55450-183a-45d6-a9ce-68f3cbc68947 --client=b5505019-43a5-4eda-bc5e-b0157a1227b9 --resource=https://graph.microsoft.com `` 
+
+<br>
+
 ![image](https://user-images.githubusercontent.com/58001986/164604283-57cb6bb8-6a57-4890-b964-5170777cb070.png)
 
 ## Backround
