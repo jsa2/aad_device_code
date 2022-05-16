@@ -13,7 +13,7 @@ var data={
 }
 var opt = {
     method:"post",
-    url:"https://login.microsoftonline.com/common/oauth2/devicecode?api-version=1.0",
+    url:`https://login.microsoftonline.com/${argv?.tid || "common"}/oauth2/devicecode?api-version=1.0`,
     data
 }
 let errorP 
